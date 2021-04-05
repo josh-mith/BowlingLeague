@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Team>
+
+<a class="btn btn-block" asp-action="Index" asp-controller="Home" asp-route-teamid="">Home</a>
+<br />
+
+@foreach (var x in Model)
+{
+    //Determine which team name should be highlighted
+    <a  asp-action="Index" asp-controller="Home" asp-route-teamid="@x.TeamId" asp-route-teamname="@x.TeamName" class="btn btn-block @(x.TeamName == ViewBag.SelectedTeam ? "btn-primary": "btn-outline-secondary")">@x.TeamName</a>
+    <br />
+}
